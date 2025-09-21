@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BGMat
-  m_Shader: {fileID: -6465566751694194690, guid: bf2e224cf2e5bef4cbe9a8ab31bd2b71, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: de756c6f25f428942a1f2ad4b577ecad, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -117,6 +117,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HueOffset: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
