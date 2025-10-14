@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: b8b47bb50334afd4bbb2c4fa0e6e0cbd
+guid: 04ec6223b4bf82a44a21a1fe8e68b5a5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: snake
-    second: {fileID: 2100000, guid: 0f060d355feb692459cc236cec5d935c, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
