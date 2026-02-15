@@ -2,6 +2,8 @@
 using _SnakesGame.Develop.Runtime.Utilities.AssetsManagement;
 using _SnakesGame.Develop.Runtime.Utilities.ConfigsManagement;
 using _SnakesGame.Develop.Runtime.Utilities.CoroutinesManagement;
+using _SnakesGame.Develop.Runtime.Utilities.LoadingScreen;
+using _SnakesGame.Develop.Runtime.Utilities.SceneManagement;
 using UnityEngine;
 
 namespace _SnakesGame.Develop.Runtime.Infrastructure.EntryPoint
@@ -13,6 +15,9 @@ namespace _SnakesGame.Develop.Runtime.Infrastructure.EntryPoint
             container.RegisterAsSingle<ICoroutinesPerformer>(CreateCoroutinesPerformer);
             container.RegisterAsSingle(CreateConfigsProviderService);
             container.RegisterAsSingle(CreateResourcesAssetsLoader);
+            container.RegisterAsSingle(CreateSceneLoaderService);
+            container.RegisterAsSingle<ILoadingScreen>(CreateStandardLoadingScreen);
+            container.RegisterAsSingle(CreateSceneSwitcherService);
         }
 
         private static CoroutinesPerformer CreateCoroutinesPerformer(DIContainer c)
@@ -33,6 +38,26 @@ namespace _SnakesGame.Develop.Runtime.Infrastructure.EntryPoint
         }
 
         private static ResourcesAssetsLoader CreateResourcesAssetsLoader(DIContainer c) => new ResourcesAssetsLoader();
+
+        private static SceneLoaderService CreateSceneLoaderService(DIContainer c) => new SceneLoaderService();
+
+        private static StandardLoadingScreen CreateStandardLoadingScreen(DIContainer c)
+        {
+            ResourcesAssetsLoader resourcesAssetsLoader = c.Resolve<ResourcesAssetsLoader>();
+
+            StandardLoadingScreen standardLoadingScreen = 
+                resourcesAssetsLoader.Load<StandardLoadingScreen>("Utilities/StandardLoadingScreen");
+
+            return Object.Instantiate(standardLoadingScreen);
+        }
+
+        public static SceneSwitcherService CreateSceneSwitcherService(DIContainer c)
+        {
+            return new SceneSwitcherService(
+                c.Resolve<SceneLoaderService>(),
+                c.Resolve<ILoadingScreen>(),
+                c);
+        }
 
     }
 }
