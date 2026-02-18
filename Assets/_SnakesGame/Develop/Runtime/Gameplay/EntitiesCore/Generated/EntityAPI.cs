@@ -50,6 +50,54 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
 			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.MoveSpeed {Value = value});
 		}
 
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationDirection RotationDirectionC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationDirection>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<UnityEngine.Vector3> RotationDirection => RotationDirectionC.Value;
+
+		public bool TryGetRotationDirection(out _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<UnityEngine.Vector3> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationDirection component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<UnityEngine.Vector3>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddRotationDirection()
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationDirection { Value = new _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<UnityEngine.Vector3>() });
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddRotationDirection(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<UnityEngine.Vector3> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationDirection {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationSpeed RotationSpeedC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationSpeed>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> RotationSpeed => RotationSpeedC.Value;
+
+		public bool TryGetRotationSpeed(out _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationSpeed component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddRotationSpeed()
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationSpeed { Value = new _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single>() });
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddRotationSpeed(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationSpeed {Value = value});
+		}
+
 		public _SnakesGame.Develop.Runtime.Gameplay.Common.RigidbodyComponent RigidbodyC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Common.RigidbodyComponent>();
 
 		public UnityEngine.Rigidbody Rigidbody => RigidbodyC.Value;

@@ -33,6 +33,7 @@ namespace _SnakesGame.Develop.Runtime.Gameplay
                 return;
 
             _snake.MoveDirection.Value = _gameplayInputService.InputDirection;
+            _snake.RotationDirection.Value = _gameplayInputService.InputDirection;
         }
     }
 }

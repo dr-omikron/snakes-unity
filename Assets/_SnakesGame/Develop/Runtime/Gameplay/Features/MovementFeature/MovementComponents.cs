@@ -13,4 +13,14 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature
     {
         public ReactiveVariable<float> Value;
     }
+
+    public class RotationDirection : IEntityComponent
+    {
+        public ReactiveVariable<Vector3> Value;
+    }
+
+    public class RotationSpeed : IEntityComponent
+    {
+        public ReactiveVariable<float> Value;
+    }
 }
