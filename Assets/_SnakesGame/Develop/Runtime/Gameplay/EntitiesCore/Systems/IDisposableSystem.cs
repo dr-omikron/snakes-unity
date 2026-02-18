@@ -1,0 +1,7 @@
+﻿namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Systems
+{
+    public interface IDisposableSystem : IEntitySystem
+    {
+        void OnDispose();
+    }
+}
