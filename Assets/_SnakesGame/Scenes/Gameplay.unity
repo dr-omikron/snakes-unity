@@ -183,7 +183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ba793ff7146d177498e36374ccbe07eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -375,6 +375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1531062588}
   - component: {fileID: 1531062589}
+  - component: {fileID: 1531062590}
   m_Layer: 0
   m_Name: Bootstrap
   m_TagString: Untagged
@@ -409,63 +410,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adae430b61ba2a345950dfdf91f6cb00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1748559910
-PrefabInstance:
+  _testGameplay: {fileID: 1531062590}
+--- !u!114 &1531062590
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2509886276706453022, guid: 3fcd36d5837b5de409a46dd0a3ac4217, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2509886276706453022, guid: 3fcd36d5837b5de409a46dd0a3ac4217, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2509886276706453022, guid: 3fcd36d5837b5de409a46dd0a3ac4217, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2509886276706453022, guid: 3fcd36d5837b5de409a46dd0a3ac4217, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2509886276706453022, guid: 3fcd36d5837b5de409a46dd0a3ac4217, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2509886276706453022, guid: 3fcd36d5837b5de409a46dd0a3ac4217, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2509886276706453022, guid: 3fcd36d5837b5de409a46dd0a3ac4217, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2509886276706453022, guid: 3fcd36d5837b5de409a46dd0a3ac4217, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2509886276706453022, guid: 3fcd36d5837b5de409a46dd0a3ac4217, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2509886276706453022, guid: 3fcd36d5837b5de409a46dd0a3ac4217, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3125989413641607870, guid: 3fcd36d5837b5de409a46dd0a3ac4217, type: 3}
-      propertyPath: m_Name
-      value: SnakeCharacter
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3fcd36d5837b5de409a46dd0a3ac4217, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531062587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e47c4f0f7606649b0e6cebe6cf111c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -473,4 +430,3 @@ SceneRoots:
   - {fileID: 1531062588}
   - {fileID: 680671831}
   - {fileID: 129337207}
-  - {fileID: 1748559910}

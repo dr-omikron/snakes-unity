@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using _SnakesGame.Develop.Runtime.Gameplay.Infrastructure;
 using _SnakesGame.Develop.Runtime.Infrastructure.DI;
 using _SnakesGame.Develop.Runtime.Utilities.ConfigsManagement;
 using _SnakesGame.Develop.Runtime.Utilities.CoroutinesManagement;
@@ -49,7 +50,7 @@ namespace _SnakesGame.Develop.Runtime.Infrastructure.EntryPoint
 
             loadingScreen.Hide();
 
-            yield return sceneSwitcherService.ProcessSwitchTo(Scenes.MainMenu);
+            yield return sceneSwitcherService.ProcessSwitchTo(Scenes.Gameplay, new GameplayInputArgs(1));
         }
     }
 }
