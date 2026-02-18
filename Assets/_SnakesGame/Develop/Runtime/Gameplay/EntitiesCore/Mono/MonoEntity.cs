@@ -7,6 +7,7 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Mono
         private Entity _linkedEntity;
 
         public Entity LinkedEntity => _linkedEntity;
+
         public void Link(Entity entity)
         {
             _linkedEntity = entity;

@@ -4,16 +4,17 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore;
 using UnityEditor;
 using UnityEngine;
 
 namespace _SnakesGame.Develop.Editor
 {
-    /*public class EntityAPIGenerator
+    public class EntityAPIGenerator
     {
         private const string AssemblyName = "Assembly-CSharp";
         private static string OutputPath 
-            => Path.Combine(Application.dataPath, "_Archero/Develop/Runtime/Gameplay/EntitiesCore/Generated/EntityAPI.cs");
+            => Path.Combine(Application.dataPath, "_SnakesGame/Develop/Runtime/Gameplay/EntitiesCore/Generated/EntityAPI.cs");
 
         [InitializeOnLoadMethod]
         [MenuItem("Tools/GenerateEntityAPI")]
@@ -186,5 +187,5 @@ namespace _SnakesGame.Develop.Editor
 
         private static string GetVariableNameFrom(string name) => char.ToLowerInvariant(name[0]) + name.Substring(1);
 
-    }*/
+    }
 }

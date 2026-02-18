@@ -1,5 +1,7 @@
 ﻿using _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Mono;
+using _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature;
 using _SnakesGame.Develop.Runtime.Infrastructure.DI;
+using _SnakesGame.Develop.Runtime.Utilities.Reactive;
 using UnityEngine;
 
 namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
@@ -20,8 +22,13 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
         public Entity CreateSnake(Vector3 position)
         {
             Entity entity = CreateEmpty();
-
             _monoEntityFactory.Create(entity, position, "Entities/SnakeCharacter");
+
+            entity
+                .AddMoveDirection()
+                .AddMoveSpeed(new ReactiveVariable<float>(10));
+
+            entity.AddSystem(new RigidbodyMovementSystem());
 
             _entitiesLifeContext.Add(entity);
 

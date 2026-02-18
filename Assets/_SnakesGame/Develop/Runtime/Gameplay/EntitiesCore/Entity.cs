@@ -4,7 +4,7 @@ using _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Systems;
 
 namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
 {
-    public class Entity
+    public partial class Entity
     {
         private readonly Dictionary<Type, IEntityComponent> _components = new Dictionary<Type, IEntityComponent>();
         private readonly List<IEntitySystem> _systems = new List<IEntitySystem>();

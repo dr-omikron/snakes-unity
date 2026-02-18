@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore;
 using _SnakesGame.Develop.Runtime.Infrastructure;
 using _SnakesGame.Develop.Runtime.Infrastructure.DI;
 using _SnakesGame.Develop.Runtime.Utilities.CoroutinesManagement;
@@ -12,6 +13,7 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Infrastructure
     {
         private DIContainer _container;
         private GameplayInputArgs _inputArgs;
+        private EntitiesLifeContext _entitiesLifeContext;
 
         [SerializeField] private TestGameplay _testGameplay;
 
@@ -33,6 +35,7 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Infrastructure
             Debug.Log("Gameplay Scene Initialized");
 
             _testGameplay.Initialize(_container);
+            _entitiesLifeContext = _container.Resolve<EntitiesLifeContext>();
 
             yield break;
         }
@@ -46,6 +49,8 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Infrastructure
 
         private void Update()
         {
+            _entitiesLifeContext?.Update(Time.deltaTime);
+
             if (Input.GetKeyDown(KeyCode.F))
             {
                 SceneSwitcherService sceneSwitcherService = _container.Resolve<SceneSwitcherService>();

@@ -2,7 +2,7 @@
 using _SnakesGame.Develop.Runtime.Utilities.Reactive;
 using UnityEngine;
 
-namespace _SnakesGame.Develop.Runtime.Gameplay.Features
+namespace _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature
 {
     public class MoveDirection : IEntityComponent
     {
@@ -11,6 +11,6 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Features
 
     public class MoveSpeed : IEntityComponent
     {
-        public ReactiveVariable<Vector3> Value;
+        public ReactiveVariable<float> Value;
     }
 }
