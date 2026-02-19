@@ -31,13 +31,17 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
                 .AddRotationDirection()
                 .AddRotationSpeed(new ReactiveVariable<float>(999))
                 .AddCurrentHealth(new ReactiveVariable<int>(1))
-                .AddIsDead();
+                .AddIsDead()
+                .AddInDeathProcess()
+                .AddDeathProcessInitialTime(new ReactiveVariable<float>(2))
+                .AddDeathProcessCurrentTime();
 
             entity
                 .AddSystem(new RigidbodyMovementSystem())
                 .AddSystem(new RigidbodyRotationSystem())
                 .AddSystem(new DeathSystem())
-                .AddSystem(new SelfReleaseSystem(_container.Resolve<EntitiesLifeContext>()));
+                .AddSystem(new DeathProcessTimerSystem())
+                .AddSystem(new SelfReleaseSystem(_entitiesLifeContext));
 
             _entitiesLifeContext.Add(entity);
 
@@ -53,11 +57,15 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
                 .AddMoveDirection()
                 .AddMoveSpeed(new ReactiveVariable<float>(10))
                 .AddCurrentHealth(new ReactiveVariable<int>(3))
-                .AddIsDead();
+                .AddIsDead()
+                .AddInDeathProcess()
+                .AddDeathProcessInitialTime(new ReactiveVariable<float>(0))
+                .AddDeathProcessCurrentTime();
 
             entity
                 .AddSystem(new TransformMovementSystem())
                 .AddSystem(new DeathSystem())
+                .AddSystem(new DeathProcessTimerSystem())
                 .AddSystem(new SelfReleaseSystem(_container.Resolve<EntitiesLifeContext>()));
 
             _entitiesLifeContext.Add(entity);

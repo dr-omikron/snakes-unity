@@ -170,6 +170,78 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
 			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.IsDead {Value = value});
 		}
 
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DeathProcessInitialTime DeathProcessInitialTimeC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DeathProcessInitialTime>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> DeathProcessInitialTime => DeathProcessInitialTimeC.Value;
+
+		public bool TryGetDeathProcessInitialTime(out _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DeathProcessInitialTime component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddDeathProcessInitialTime()
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DeathProcessInitialTime { Value = new _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single>() });
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddDeathProcessInitialTime(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DeathProcessInitialTime {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DeathProcessCurrentTime DeathProcessCurrentTimeC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DeathProcessCurrentTime>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> DeathProcessCurrentTime => DeathProcessCurrentTimeC.Value;
+
+		public bool TryGetDeathProcessCurrentTime(out _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DeathProcessCurrentTime component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddDeathProcessCurrentTime()
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DeathProcessCurrentTime { Value = new _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single>() });
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddDeathProcessCurrentTime(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DeathProcessCurrentTime {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.InDeathProcess InDeathProcessC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.InDeathProcess>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean> InDeathProcess => InDeathProcessC.Value;
+
+		public bool TryGetInDeathProcess(out _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.InDeathProcess component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddInDeathProcess()
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.InDeathProcess { Value = new _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean>() });
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddInDeathProcess(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.InDeathProcess {Value = value});
+		}
+
 		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Snake.IsAnyTailExist IsAnyTailExistC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Snake.IsAnyTailExist>();
 
 		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean> IsAnyTailExist => IsAnyTailExistC.Value;

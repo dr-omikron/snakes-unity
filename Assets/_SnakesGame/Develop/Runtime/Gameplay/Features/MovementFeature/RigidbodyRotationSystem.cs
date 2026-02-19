@@ -9,6 +9,7 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature
     {
         private ReactiveVariable<Vector3> _rotationDirection;
         private ReactiveVariable<float> _rotationSpeed;
+        private ReactiveVariable<bool> _isDead;
         private Rigidbody _rigidbody;
 
         public void OnInit(Entity entity)
@@ -16,10 +17,14 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature
             _rotationDirection = entity.RotationDirection;
             _rotationSpeed = entity.RotationSpeed;
             _rigidbody = entity.Rigidbody;
+            _isDead = entity.IsDead;
         }
 
         public void OnUpdate(float deltaTime)
         {
+            if (_isDead.Value)
+                return;
+
             if(_rotationDirection.Value == Vector3.zero)
                 return;
 
