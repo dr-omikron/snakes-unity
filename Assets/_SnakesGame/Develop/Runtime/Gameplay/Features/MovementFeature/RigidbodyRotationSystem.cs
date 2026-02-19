@@ -1,5 +1,6 @@
 ﻿using _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore;
 using _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Systems;
+using _SnakesGame.Develop.Runtime.Utilities.Conditions;
 using _SnakesGame.Develop.Runtime.Utilities.Reactive;
 using UnityEngine;
 
@@ -9,20 +10,21 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature
     {
         private ReactiveVariable<Vector3> _rotationDirection;
         private ReactiveVariable<float> _rotationSpeed;
-        private ReactiveVariable<bool> _isDead;
         private Rigidbody _rigidbody;
+
+        private ICompositeCondition _canRotate;
 
         public void OnInit(Entity entity)
         {
             _rotationDirection = entity.RotationDirection;
             _rotationSpeed = entity.RotationSpeed;
             _rigidbody = entity.Rigidbody;
-            _isDead = entity.IsDead;
+            _canRotate = entity.CanRotate;
         }
 
         public void OnUpdate(float deltaTime)
         {
-            if (_isDead.Value)
+            if (_canRotate.Evaluate() == false)
                 return;
 
             if(_rotationDirection.Value == Vector3.zero)

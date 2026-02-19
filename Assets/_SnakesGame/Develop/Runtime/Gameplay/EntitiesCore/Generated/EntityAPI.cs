@@ -50,6 +50,25 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
 			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.MoveSpeed {Value = value});
 		}
 
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.CanMove CanMoveC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.CanMove>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition CanMove => CanMoveC.Value;
+
+		public bool TryGetCanMove(out _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.CanMove component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddCanMove(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.CanMove {Value = value});
+		}
+
 		public _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationDirection RotationDirectionC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationDirection>();
 
 		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<UnityEngine.Vector3> RotationDirection => RotationDirectionC.Value;
@@ -96,6 +115,25 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
 		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddRotationSpeed(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
 		{
 			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.RotationSpeed {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.CanRotate CanRotateC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.CanRotate>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition CanRotate => CanRotateC.Value;
+
+		public bool TryGetCanRotate(out _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.CanRotate component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddCanRotate(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.CanRotate {Value = value});
 		}
 
 		public _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.CurrentHealth CurrentHealthC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.CurrentHealth>();
@@ -170,6 +208,44 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
 			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.IsDead {Value = value});
 		}
 
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.MustDie MustDieC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.MustDie>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition MustDie => MustDieC.Value;
+
+		public bool TryGetMustDie(out _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.MustDie component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddMustDie(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.MustDie {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.MustSelfRelease MustSelfReleaseC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.MustSelfRelease>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition MustSelfRelease => MustSelfReleaseC.Value;
+
+		public bool TryGetMustSelfRelease(out _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.MustSelfRelease component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddMustSelfRelease(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.MustSelfRelease {Value = value});
+		}
+
 		public _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DeathProcessInitialTime DeathProcessInitialTimeC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DeathProcessInitialTime>();
 
 		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> DeathProcessInitialTime => DeathProcessInitialTimeC.Value;
@@ -240,6 +316,73 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
 		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddInDeathProcess(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean> value)
 		{
 			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.InDeathProcess {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageRequest TakeDamageRequestC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageRequest>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveEvent<System.Int32> TakeDamageRequest => TakeDamageRequestC.Value;
+
+		public bool TryGetTakeDamageRequest(out _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveEvent<System.Int32> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageRequest component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveEvent<System.Int32>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddTakeDamageRequest()
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageRequest { Value = new _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveEvent<System.Int32>() });
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddTakeDamageRequest(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveEvent<System.Int32> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageRequest {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageEvent TakeDamageEventC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageEvent>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveEvent<System.Int32> TakeDamageEvent => TakeDamageEventC.Value;
+
+		public bool TryGetTakeDamageEvent(out _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveEvent<System.Int32> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageEvent component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveEvent<System.Int32>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddTakeDamageEvent()
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageEvent { Value = new _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveEvent<System.Int32>() });
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddTakeDamageEvent(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveEvent<System.Int32> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageEvent {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.CanApplyDamage CanApplyDamageC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.CanApplyDamage>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition CanApplyDamage => CanApplyDamageC.Value;
+
+		public bool TryGetCanApplyDamage(out _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.CanApplyDamage component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddCanApplyDamage(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.CanApplyDamage {Value = value});
 		}
 
 		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Snake.IsAnyTailExist IsAnyTailExistC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Snake.IsAnyTailExist>();

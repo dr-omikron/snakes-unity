@@ -39,13 +39,13 @@ namespace _SnakesGame.Develop.Runtime.Gameplay
 
             if (Input.GetKeyDown(KeyCode.C))
             {
-                _checker.CurrentHealth.Value--;
+                _checker.TakeDamageRequest.Invoke(1);
                 Debug.Log("Checker Health: " + _checker.CurrentHealth.Value);
             }
 
             if (Input.GetKeyDown(KeyCode.R))
             {
-                _snake.CurrentHealth.Value--;
+                _snake.TakeDamageRequest.Invoke(1);
                 Debug.Log("Snake Health: " + _snake.CurrentHealth.Value);
             }
         }
