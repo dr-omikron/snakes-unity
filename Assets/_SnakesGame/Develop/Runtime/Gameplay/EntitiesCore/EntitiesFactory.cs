@@ -1,4 +1,5 @@
 ﻿using _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Mono;
+using _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle;
 using _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature;
 using _SnakesGame.Develop.Runtime.Infrastructure.DI;
 using _SnakesGame.Develop.Runtime.Utilities.Reactive;
@@ -28,11 +29,36 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
                 .AddMoveDirection()
                 .AddMoveSpeed(new ReactiveVariable<float>(10))
                 .AddRotationDirection()
-                .AddRotationSpeed(new ReactiveVariable<float>(999));
+                .AddRotationSpeed(new ReactiveVariable<float>(999))
+                .AddCurrentHealth(new ReactiveVariable<int>(1))
+                .AddIsDead();
 
             entity
                 .AddSystem(new RigidbodyMovementSystem())
-                .AddSystem(new RigidbodyRotationSystem());
+                .AddSystem(new RigidbodyRotationSystem())
+                .AddSystem(new DeathSystem())
+                .AddSystem(new SelfReleaseSystem(_container.Resolve<EntitiesLifeContext>()));
+
+            _entitiesLifeContext.Add(entity);
+
+            return entity;
+        }
+
+        public Entity CreateChecker(Vector3 position)
+        {
+            Entity entity = CreateEmpty();
+            _monoEntityFactory.Create(entity, position, "Entities/Checker");
+
+            entity
+                .AddMoveDirection()
+                .AddMoveSpeed(new ReactiveVariable<float>(10))
+                .AddCurrentHealth(new ReactiveVariable<int>(3))
+                .AddIsDead();
+
+            entity
+                .AddSystem(new TransformMovementSystem())
+                .AddSystem(new DeathSystem())
+                .AddSystem(new SelfReleaseSystem(_container.Resolve<EntitiesLifeContext>()));
 
             _entitiesLifeContext.Add(entity);
 

@@ -109,7 +109,7 @@ CapsuleCollider:
   m_Radius: 0.2
   m_Height: 0.7
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1001 &5863639520975543043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b8b47bb50334afd4bbb2c4fa0e6e0cbd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.202
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b8b47bb50334afd4bbb2c4fa0e6e0cbd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -249,6 +249,10 @@ PrefabInstance:
     - target: {fileID: 3884544202723068360, guid: b8b47bb50334afd4bbb2c4fa0e6e0cbd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 179.7554
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917786030059240828, guid: b8b47bb50334afd4bbb2c4fa0e6e0cbd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6220113221283116145, guid: b8b47bb50334afd4bbb2c4fa0e6e0cbd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

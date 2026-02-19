@@ -11,6 +11,7 @@ namespace _SnakesGame.Develop.Runtime.Gameplay
         private EntitiesFactory _entitiesFactory;
         private GameplayInputService _gameplayInputService;
         private Entity _snake;
+        private Entity _checker;
         
         private bool _isRunning;
 
@@ -24,6 +25,7 @@ namespace _SnakesGame.Develop.Runtime.Gameplay
         public void Run()
         {
             _snake = _entitiesFactory.CreateSnake(Vector3.zero);
+            _checker = _entitiesFactory.CreateChecker(Vector3.zero + Vector3.forward * 2);
             _isRunning = true;
         }
 
@@ -34,6 +36,12 @@ namespace _SnakesGame.Develop.Runtime.Gameplay
 
             _snake.MoveDirection.Value = _gameplayInputService.InputDirection;
             _snake.RotationDirection.Value = _gameplayInputService.InputDirection;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _checker.CurrentHealth.Value--;
+                Debug.Log("Health: " + _checker.CurrentHealth.Value);
+            }
         }
     }
 }
