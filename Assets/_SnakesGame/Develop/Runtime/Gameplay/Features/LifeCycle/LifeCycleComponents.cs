@@ -1,6 +1,8 @@
-﻿using _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore;
+﻿using System.Collections.Generic;
+using _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore;
 using _SnakesGame.Develop.Runtime.Utilities.Conditions;
 using _SnakesGame.Develop.Runtime.Utilities.Reactive;
+using UnityEngine;
 
 namespace _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle
 {
@@ -42,5 +44,10 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle
     public class InDeathProcess : IEntityComponent
     {
         public ReactiveVariable<bool> Value;
+    }
+
+    public class DisableCollidersOnDeath : IEntityComponent
+    {
+        public List<Collider> Value;
     }
 }

@@ -26,11 +26,12 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature
         {
             if (_canMove.Evaluate() == false)
             {
-                _rigidbody.linearVelocity = Vector3.zero;
+                _rigidbody.linearVelocity = new Vector3(0, _rigidbody.linearVelocity.y, 0);
                 return;
             }
 
-            Vector3 velocity = _moveDirection.Value.normalized * _moveSpeed.Value;
+            Vector3 groundVelocity = _moveDirection.Value.normalized * _moveSpeed.Value;
+            Vector3 velocity = new Vector3(groundVelocity.x, _rigidbody.linearVelocity.y, groundVelocity.z);
             _rigidbody.linearVelocity = velocity;
         }
     }

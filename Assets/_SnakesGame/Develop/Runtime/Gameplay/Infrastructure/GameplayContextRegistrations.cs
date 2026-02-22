@@ -14,6 +14,7 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Infrastructure
             container.RegisterAsSingle(CreateEntitiesLifeContext);
             container.RegisterAsSingle(CreateMonoEntityFactory).NonLazy();
             container.RegisterAsSingle(CreateGameplayInputService).NonLazy();
+            container.RegisterAsSingle(CreateCollidersRegistryService);
         }
 
         private static EntitiesFactory CreateEntitiesFactory(DIContainer c)
@@ -26,10 +27,14 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Infrastructure
         {
             return new MonoEntityFactory(
                 c.Resolve<ResourcesAssetsLoader>(), 
-                c.Resolve<EntitiesLifeContext>());
+                c.Resolve<EntitiesLifeContext>(),
+                c.Resolve<CollidersRegistryService>());
         }
 
         private static GameplayInputService CreateGameplayInputService(DIContainer c)
             => new GameplayInputService();
+        
+        private static CollidersRegistryService CreateCollidersRegistryService(DIContainer c)
+            => new CollidersRegistryService();
     }
 }

@@ -13,18 +13,20 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Features.InputFeatures
         public event Action JumpReleased;
 
         public Vector3 InputDirection { get; private set; }
+        public bool JumpButtonPressed { get; private set; }
 
         private SnakesInputs _snakesInputs;
 
         public void Initialize()
         {
             _snakesInputs = new SnakesInputs();
+            InputSystem.onBeforeUpdate += OnBeforeUpdate;
 
             _snakesInputs.Player.Move.performed += OnMoveInputReceived;
             _snakesInputs.Player.Move.canceled += OnMoveInputCanceled;
             _snakesInputs.Player.Attack.started += OnAttackPressed;
             _snakesInputs.Player.Attack.canceled += OnAttackReleased;
-            _snakesInputs.Player.Jump.performed += OnJumpPressed;
+            _snakesInputs.Player.Jump.started += OnJumpStarted;
             _snakesInputs.Player.Jump.canceled += OnJumpReleased;
 
             EnableInputs();
@@ -36,11 +38,13 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Features.InputFeatures
 
         public void Dispose()
         {
+            InputSystem.onBeforeUpdate -= OnBeforeUpdate;
+
             _snakesInputs.Player.Move.performed -= OnMoveInputReceived;
             _snakesInputs.Player.Move.canceled -= OnMoveInputCanceled;
             _snakesInputs.Player.Attack.started -= OnAttackPressed;
             _snakesInputs.Player.Attack.canceled -= OnAttackReleased;
-            _snakesInputs.Player.Jump.performed -= OnJumpPressed;
+            _snakesInputs.Player.Jump.started -= OnJumpStarted;
             _snakesInputs.Player.Jump.canceled -= OnJumpReleased;
         }
 
@@ -53,11 +57,22 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.Features.InputFeatures
         private void OnMoveInputCanceled(InputAction.CallbackContext context)
             => InputDirection = Vector3.zero;
 
-        private void OnJumpPressed(InputAction.CallbackContext context) 
-            => JumpPressed?.Invoke();
+        private void OnJumpStarted(InputAction.CallbackContext context)
+        {
+            JumpButtonPressed = true;
+            JumpPressed?.Invoke();
+        }
 
         private void OnJumpReleased(InputAction.CallbackContext context)
-            => JumpReleased?.Invoke();
+        {
+            JumpButtonPressed = false;
+            JumpReleased?.Invoke();
+        }
+
+        private void OnBeforeUpdate()
+        {
+            JumpButtonPressed = false;
+        }
 
         private void OnAttackPressed(InputAction.CallbackContext context) 
             => AttackPressed?.Invoke();

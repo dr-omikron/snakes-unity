@@ -48,6 +48,8 @@ namespace _SnakesGame.Develop.Runtime.Gameplay
                 _snake.TakeDamageRequest.Invoke(1);
                 Debug.Log("Snake Health: " + _snake.CurrentHealth.Value);
             }
+            
+            Debug.Log("CanJump: " + _snake.CanJump.Evaluate());
         }
     }
 }

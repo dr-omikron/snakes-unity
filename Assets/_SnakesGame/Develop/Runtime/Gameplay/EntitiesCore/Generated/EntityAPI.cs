@@ -2,6 +2,230 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
 {
 	public partial class Entity
 	{
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.BodyCollider BodyColliderC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.BodyCollider>();
+
+		public UnityEngine.Collider BodyCollider => BodyColliderC.Value;
+
+		public bool TryGetBodyCollider(out UnityEngine.Collider value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.BodyCollider component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(UnityEngine.Collider);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddBodyCollider(UnityEngine.Collider value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.BodyCollider {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.ContactDetectingMask ContactDetectingMaskC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.ContactDetectingMask>();
+
+		public UnityEngine.LayerMask ContactDetectingMask => ContactDetectingMaskC.Value;
+
+		public bool TryGetContactDetectingMask(out UnityEngine.LayerMask value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.ContactDetectingMask component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(UnityEngine.LayerMask);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddContactDetectingMask(UnityEngine.LayerMask value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.ContactDetectingMask {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.ContactCollidersBuffer ContactCollidersBufferC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.ContactCollidersBuffer>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Buffer<UnityEngine.Collider> ContactCollidersBuffer => ContactCollidersBufferC.Value;
+
+		public bool TryGetContactCollidersBuffer(out _SnakesGame.Develop.Runtime.Utilities.Buffer<UnityEngine.Collider> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.ContactCollidersBuffer component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Buffer<UnityEngine.Collider>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddContactCollidersBuffer(_SnakesGame.Develop.Runtime.Utilities.Buffer<UnityEngine.Collider> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.ContactCollidersBuffer {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.ContactEntitiesBuffer ContactEntitiesBufferC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.ContactEntitiesBuffer>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Buffer<_SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity> ContactEntitiesBuffer => ContactEntitiesBufferC.Value;
+
+		public bool TryGetContactEntitiesBuffer(out _SnakesGame.Develop.Runtime.Utilities.Buffer<_SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.ContactEntitiesBuffer component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Buffer<_SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddContactEntitiesBuffer(_SnakesGame.Develop.Runtime.Utilities.Buffer<_SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.ContactEntitiesBuffer {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.GroundCheckCollider GroundCheckColliderC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.GroundCheckCollider>();
+
+		public UnityEngine.Collider GroundCheckCollider => GroundCheckColliderC.Value;
+
+		public bool TryGetGroundCheckCollider(out UnityEngine.Collider value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.GroundCheckCollider component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(UnityEngine.Collider);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddGroundCheckCollider(UnityEngine.Collider value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.GroundCheckCollider {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.GroundCheckMask GroundCheckMaskC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.GroundCheckMask>();
+
+		public UnityEngine.LayerMask GroundCheckMask => GroundCheckMaskC.Value;
+
+		public bool TryGetGroundCheckMask(out UnityEngine.LayerMask value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.GroundCheckMask component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(UnityEngine.LayerMask);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddGroundCheckMask(UnityEngine.LayerMask value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.Sensors.GroundCheckMask {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.CanJump CanJumpC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.CanJump>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition CanJump => CanJumpC.Value;
+
+		public bool TryGetCanJump(out _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.CanJump component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddCanJump(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.CanJump {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.HandlingGravity HandlingGravityC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.HandlingGravity>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition HandlingGravity => HandlingGravityC.Value;
+
+		public bool TryGetHandlingGravity(out _SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.HandlingGravity component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddHandlingGravity(_SnakesGame.Develop.Runtime.Utilities.Conditions.ICompositeCondition value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.HandlingGravity {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.IsGrounded IsGroundedC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.IsGrounded>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean> IsGrounded => IsGroundedC.Value;
+
+		public bool TryGetIsGrounded(out _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.IsGrounded component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddIsGrounded()
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.IsGrounded { Value = new _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean>() });
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddIsGrounded(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.IsGrounded {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.JumpForce JumpForceC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.JumpForce>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> JumpForce => JumpForceC.Value;
+
+		public bool TryGetJumpForce(out _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.JumpForce component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddJumpForce()
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.JumpForce { Value = new _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single>() });
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddJumpForce(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.JumpForce {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.GravityForce GravityForceC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.GravityForce>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> GravityForce => GravityForceC.Value;
+
+		public bool TryGetGravityForce(out _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.GravityForce component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddGravityForce()
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.GravityForce { Value = new _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single>() });
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddGravityForce(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.GravityForce {Value = value});
+		}
+
 		public _SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.MoveDirection MoveDirectionC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.MovementFeature.MoveDirection>();
 
 		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<UnityEngine.Vector3> MoveDirection => MoveDirectionC.Value;
@@ -316,6 +540,54 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore
 		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddInDeathProcess(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean> value)
 		{
 			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.InDeathProcess {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DisableCollidersOnDeath DisableCollidersOnDeathC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DisableCollidersOnDeath>();
+
+		public System.Collections.Generic.List<UnityEngine.Collider> DisableCollidersOnDeath => DisableCollidersOnDeathC.Value;
+
+		public bool TryGetDisableCollidersOnDeath(out System.Collections.Generic.List<UnityEngine.Collider> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DisableCollidersOnDeath component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(System.Collections.Generic.List<UnityEngine.Collider>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddDisableCollidersOnDeath()
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DisableCollidersOnDeath { Value = new System.Collections.Generic.List<UnityEngine.Collider>() });
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddDisableCollidersOnDeath(System.Collections.Generic.List<UnityEngine.Collider> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.LifeCycle.DisableCollidersOnDeath {Value = value});
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.Features.ContactTakeDamage.ContactDamage ContactDamageC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.ContactTakeDamage.ContactDamage>();
+
+		public _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Int32> ContactDamage => ContactDamageC.Value;
+
+		public bool TryGetContactDamage(out _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Int32> value)
+		{
+			bool result = TryGetComponent(out _SnakesGame.Develop.Runtime.Gameplay.Features.ContactTakeDamage.ContactDamage component);
+			if(result)
+				value = component.Value;
+			else
+				value = default(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Int32>);
+			return result;
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddContactDamage()
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.ContactTakeDamage.ContactDamage { Value = new _SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Int32>() });
+		}
+
+		public _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Entity AddContactDamage(_SnakesGame.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Int32> value)
+		{
+			return AddComponent(new _SnakesGame.Develop.Runtime.Gameplay.Features.ContactTakeDamage.ContactDamage {Value = value});
 		}
 
 		public _SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageRequest TakeDamageRequestC => GetComponent<_SnakesGame.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageRequest>();

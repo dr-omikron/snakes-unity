@@ -11,15 +11,18 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Mono
     {
         private readonly ResourcesAssetsLoader _resourcesAssetsLoader;
         private readonly EntitiesLifeContext _entitiesLifeContext;
+        private readonly CollidersRegistryService _collidersRegistryService;
 
         private readonly Dictionary<Entity, MonoEntity> _entityToMono = new Dictionary<Entity, MonoEntity>();
 
         public MonoEntityFactory(
             ResourcesAssetsLoader resourcesAssetsLoader, 
-            EntitiesLifeContext entitiesLifeContext) 
+            EntitiesLifeContext entitiesLifeContext, 
+            CollidersRegistryService collidersRegistryService) 
         {
             _resourcesAssetsLoader = resourcesAssetsLoader;
             _entitiesLifeContext = entitiesLifeContext;
+            _collidersRegistryService = collidersRegistryService;
         }
 
         public MonoEntity Create(Entity entity, Vector3 position, string path)
@@ -27,6 +30,7 @@ namespace _SnakesGame.Develop.Runtime.Gameplay.EntitiesCore.Mono
             MonoEntity prefab = _resourcesAssetsLoader.Load<MonoEntity>(path);
             MonoEntity instance = Object.Instantiate(prefab, position, Quaternion.identity, null);
 
+            instance.Initialize(_collidersRegistryService);
             instance.Link(entity);
 
             _entityToMono.Add(entity, instance);
